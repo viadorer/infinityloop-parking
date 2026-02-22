@@ -264,67 +264,137 @@ footer a:hover { color: #111; }
 
   <!-- LEFT -->
   <div class="left">
-    <span class="tag">Doména ve správě</span>
-    <h1 class="headline">Tato doména<br>patří do<br><em>dobrých rukou.</em></h1>
+    <span class="tag" data-i18n="tag">Doména ve správě</span>
+    <h1 class="headline" data-i18n="headline">Tato doména<br>patří do<br><em>dobrých rukou.</em></h1>
     <div class="domain-display" id="domain-name">—</div>
-    <p class="desc">Doménu spravuje InfinityLoop — softwarové studio zaměřené na real estate tech, SaaS produkty a automatizaci. Máte zájem? Napište nám.</p>
+    <p class="desc" data-i18n="desc">Doménu spravuje InfinityLoop — softwarové studio zaměřené na real estate tech, SaaS produkty a automatizaci. Máte zájem? Napište nám.</p>
 
   </div>
 
   <!-- RIGHT -->
   <div class="right">
-    <div class="form-title">Kontaktujte nás</div>
+    <div class="form-title" data-i18n="formTitle">Kontaktujte nás</div>
 
     <div id="success" class="success">
-      <h3>Zpráva odeslána.</h3>
-      <p>Ozveme se vám co nejdříve.</p>
+      <h3 data-i18n="successTitle">Zpráva odeslána.</h3>
+      <p data-i18n="successText">Ozveme se vám co nejdříve.</p>
     </div>
 
     <div id="form-wrap">
       <form id="form" novalidate>
         <div class="row">
           <div class="field">
-            <label for="name">Jméno</label>
-            <input id="name" type="text" placeholder="Jan Novák" required>
+            <label for="name" data-i18n="labelName">Jméno</label>
+            <input id="name" type="text" data-i18n-placeholder="placeholderName" placeholder="Jan Novák" required>
           </div>
           <div class="field">
-            <label for="email">E-mail</label>
-            <input id="email" type="email" placeholder="jan@firma.cz" required>
+            <label for="email" data-i18n="labelEmail">E-mail</label>
+            <input id="email" type="email" data-i18n-placeholder="placeholderEmail" placeholder="jan@firma.cz" required>
           </div>
         </div>
         <div class="row">
           <div class="field">
-            <label for="phone">Telefon</label>
-            <input id="phone" type="tel" placeholder="+420 600 000 000">
+            <label for="phone" data-i18n="labelPhone">Telefon</label>
+            <input id="phone" type="tel" data-i18n-placeholder="placeholderPhone" placeholder="+420 600 000 000">
           </div>
           <div class="field">
-            <label for="topic">Zájem</label>
+            <label for="topic" data-i18n="labelTopic">Zájem</label>
             <select id="topic">
-              <option value="domena">Odkup domény</option>
-              <option value="projekt">Nový projekt</option>
-              <option value="spoluprace">Spolupráce</option>
-              <option value="jine">Jiné</option>
+              <option value="domena" data-i18n="topicDomain">Odkup domény</option>
+              <option value="projekt" data-i18n="topicProject">Nový projekt</option>
+              <option value="spoluprace" data-i18n="topicPartnership">Spolupráce</option>
+              <option value="jine" data-i18n="topicOther">Jiné</option>
             </select>
           </div>
         </div>
         <div class="field">
-          <label for="message">Zpráva</label>
-          <textarea id="message" placeholder="Popište váš zájem..."></textarea>
+          <label for="message" data-i18n="labelMessage">Zpráva</label>
+          <textarea id="message" data-i18n-placeholder="placeholderMessage" placeholder="Popište váš zájem..."></textarea>
         </div>
-        <button class="btn" type="submit" id="btn">Odeslat</button>
+        <button class="btn" type="submit" id="btn" data-i18n="btnSubmit">Odeslat</button>
       </form>
     </div>
   </div>
 
   <footer>
-    <span>Spravováno <a href="https://infinityloop.cz" target="_blank">InfinityLoop s.r.o.</a></span>
+    <span data-i18n="footerManaged">Spravováno <a href="https://infinityloop.cz" target="_blank">InfinityLoop s.r.o.</a></span>
     <span id="footer-domain"></span>
   </footer>
 
 </div>
 
 <script>
-const domain = window.location.hostname || 'tato-domena.cz';
+const translations = {
+  cs: {
+    tag: 'Doména ve správě',
+    headline: 'Tato doména<br>patří do<br><em>dobrých rukou.</em>',
+    desc: 'Doménu spravuje InfinityLoop — softwarové studio zaměřené na real estate tech, SaaS produkty a automatizaci. Máte zájem? Napište nám.',
+    formTitle: 'Kontaktujte nás',
+    successTitle: 'Zpráva odeslána.',
+    successText: 'Ozveme se vám co nejdříve.',
+    labelName: 'Jméno',
+    labelEmail: 'E-mail',
+    labelPhone: 'Telefon',
+    labelTopic: 'Zájem',
+    labelMessage: 'Zpráva',
+    placeholderName: 'Jan Novák',
+    placeholderEmail: 'jan@firma.cz',
+    placeholderPhone: '+420 600 000 000',
+    placeholderMessage: 'Popište váš zájem...',
+    topicDomain: 'Odkup domény',
+    topicProject: 'Nový projekt',
+    topicPartnership: 'Spolupráce',
+    topicOther: 'Jiné',
+    btnSubmit: 'Odeslat',
+    btnSending: 'Odesílám...',
+    btnError: 'Chyba – zkuste znovu',
+    btnNetworkError: 'Chyba připojení',
+    footerManaged: 'Spravováno <a href="https://infinityloop.cz" target="_blank">InfinityLoop s.r.o.</a>'
+  },
+  en: {
+    tag: 'Domain under management',
+    headline: 'This domain<br>is in<br><em>good hands.</em>',
+    desc: 'Domain managed by InfinityLoop — a software studio focused on real estate tech, SaaS products, and automation. Interested? Contact us.',
+    formTitle: 'Contact us',
+    successTitle: 'Message sent.',
+    successText: 'We will get back to you as soon as possible.',
+    labelName: 'Name',
+    labelEmail: 'E-mail',
+    labelPhone: 'Phone',
+    labelTopic: 'Interest',
+    labelMessage: 'Message',
+    placeholderName: 'John Doe',
+    placeholderEmail: 'john@company.com',
+    placeholderPhone: '+1 555 000 000',
+    placeholderMessage: 'Describe your interest...',
+    topicDomain: 'Domain purchase',
+    topicProject: 'New project',
+    topicPartnership: 'Partnership',
+    topicOther: 'Other',
+    btnSubmit: 'Submit',
+    btnSending: 'Sending...',
+    btnError: 'Error – try again',
+    btnNetworkError: 'Connection error',
+    footerManaged: 'Managed by <a href="https://infinityloop.cz" target="_blank">InfinityLoop s.r.o.</a>'
+  }
+};
+
+const domain = window.location.hostname || 'tata-domena.cz';
+const lang = domain.endsWith('.com') ? 'en' : 'cs';
+const t = translations[lang];
+
+document.documentElement.lang = lang;
+
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  const key = el.getAttribute('data-i18n');
+  if (t[key]) el.innerHTML = t[key];
+});
+
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+  const key = el.getAttribute('data-i18n-placeholder');
+  if (t[key]) el.placeholder = t[key];
+});
+
 document.getElementById('domain-name').textContent = domain;
 document.getElementById('footer-domain').textContent = domain;
 
@@ -332,7 +402,7 @@ document.getElementById('form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('btn');
   btn.disabled = true;
-  btn.textContent = 'Odesílám...';
+  btn.textContent = t.btnSending;
 
   const name = document.getElementById('name').value.trim();
   const parts = name.split(/\s+/);
@@ -366,13 +436,13 @@ document.getElementById('form').addEventListener('submit', async function(e) {
       document.getElementById('success').classList.add('show');
     } else {
       console.error('API error:', await res.json());
-      btn.textContent = 'Chyba – zkuste znovu';
-      setTimeout(() => { btn.textContent = 'Odeslat'; btn.disabled = false; }, 3000);
+      btn.textContent = t.btnError;
+      setTimeout(() => { btn.textContent = t.btnSubmit; btn.disabled = false; }, 3000);
     }
   } catch (err) {
     console.error('Network error:', err);
-    btn.textContent = 'Chyba připojení';
-    setTimeout(() => { btn.textContent = 'Odeslat'; btn.disabled = false; }, 3000);
+    btn.textContent = t.btnNetworkError;
+    setTimeout(() => { btn.textContent = t.btnSubmit; btn.disabled = false; }, 3000);
   }
 });
 </script>
